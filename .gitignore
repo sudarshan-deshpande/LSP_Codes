@@ -1,0 +1,11 @@
+# Ignore VS Code settings
+.vscode/
+
+# Ignore compiled files
+*.o
+*.out
+*.i
+*.s
+
+# Ignore executables
+a.out
