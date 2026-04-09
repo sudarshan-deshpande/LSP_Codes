@@ -23,11 +23,19 @@ int main()
         return -1;
     }
 
-    printf("File successfully opened with fd    : %d\n", fd);
+    printf("File successfully opened with fd : %d\n", fd);
 
-    iRet = lseek(fd, 10, SEEK_CUR);
+    iRet = read(fd, Buffer, 10);
+
+    memset(Buffer, '\0', SIZE_BUFFER);
+
+    iRet = lseek(fd, 5, SEEK_CUR);
 
     printf("Updated file offset is : %d\n", iRet);
+
+    iRet = read(fd, Buffer, 9);
+
+    printf("Data from file is : %s\n", Buffer);
 
     close(fd);
 

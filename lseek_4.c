@@ -14,7 +14,7 @@ int main()
 
     memset(Buffer, '\0', SIZE_BUFFER);
 
-    fd = open("Demo.txt", O_RDONLY);
+    fd = open("Hole.txt", O_WRONLY | O_CREAT);
 
     if (fd < 0)
     {
@@ -23,11 +23,15 @@ int main()
         return -1;
     }
 
-    printf("File successfully opened with fd    : %d\n", fd);
+    printf("File succesfully opened with fd : %d\n", fd);
 
-    iRet = lseek(fd, 10, SEEK_CUR);
+    iRet = lseek(fd, 4100, SEEK_SET);
 
-    printf("Updated file offset is : %d\n", iRet);
+    printf("Current offset is : %d\n", iRet);
+
+    iRet = write(fd, "END", 3);
+
+    printf("%d bytes gets written succesfully\n", iRet);
 
     close(fd);
 

@@ -23,9 +23,9 @@ int main()
         return -1;
     }
 
-    printf("File successfully opened with fd    : %d\n", fd);
+    printf("File successfully opened with fd : %d\n", fd);
 
-    iRet = lseek(fd, 10, SEEK_CUR);
+    iRet = lseek(fd, 10, SEEK_END);
 
     printf("Updated file offset is : %d\n", iRet);
 
